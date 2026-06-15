@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PUP Biñan Classroom Reservation and Scheduling System - Register</title>
+    <link rel="stylesheet" href="register.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="register-wrapper" style="display: flex; justify-content: center; align-items: center; min-height: 100vh; background-color: #f8f9fa; padding: 40px 20px; overflow-y: auto;">
+        <div class="register-right" style="flex: none; width: 100%; max-width: 650px; background: none; padding: 0;">
+            <div class="form-container" style="background: #ffffff; padding: 45px; border-radius: 12px; box-shadow: 0 4px 25px rgba(0,0,0,0.06);">
+                
+                <h2 style="margin-bottom: 8px; font-weight: 700; color: #1e293b;">Create Account</h2>
+                <p class="form-instruction" style="margin-bottom: 30px; color: #64748b;">Select your definitive access tier rule level below.</p>
+                
+                <label class="select-label" style="font-weight: 600; color: #334155; margin-bottom: 12px; display: block;">Select Your Role</label>
+                <div class="role-selector" style="margin-bottom: 35px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                    <div class="role-card active" data-role="1">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>Student</span>
+                    </div>
+                    <div class="role-card" data-role="2">
+                        <i class="fa-solid fa-book-open-reader"></i>
+                        <span>Professor</span>
+                    </div>
+                    <div class="role-card" data-role="3">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <span>Administrator</span>
+                    </div>
+                </div>
+                
+                <form id="register-form" style="display: flex; flex-direction: column; gap: 28px;">
+                    
+                    <div>
+                        <p class="section-title" style="margin-bottom: 16px; font-weight: 600; color: #730000; border-bottom: 2px solid #f1f2f6; padding-bottom: 6px;"><i class="fa-solid fa-user-gear"></i> Account Credentials</p>
+                        <div class="form-grid" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                            <div class="input-group">
+                                <label for="reg-username" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Username *</label>
+                                <input type="text" id="reg-username" placeholder="Create unique username" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+                            </div>
+                            <div class="input-group">
+                                <label for="reg-password" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Password *</label>
+                                <input type="password" id="reg-password" placeholder="Create secure password" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div>
+                        <p class="section-title" style="margin-bottom: 16px; font-weight: 600; color: #730000; border-bottom: 2px solid #f1f2f6; padding-bottom: 6px;"><i class="fa-solid fa-address-card"></i> Personal Profile</p>
+                        <div class="form-grid profile-grid" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                            <div class="input-group">
+                                <label for="reg-firstName" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">First Name *</label>
+                                <input type="text" id="reg-firstName" placeholder="e.g., Juan" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+                            </div>
+                            <div class="input-group">
+                                <label for="reg-middleName" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Middle Name</label>
+                                <input type="text" id="reg-middleName" placeholder="e.g., Ramos" style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+                            </div>
+                            <div class="input-group">
+                                <label for="reg-lastName" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Last Name *</label>
+                                <input type="text" id="reg-lastName" placeholder="e.g., Dela Cruz" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="input-group" id="container-idField" style="display: flex; flex-direction: column;">
+                        <label id="lbl-idNumber" for="reg-idNumber" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Student Number *</label>
+                        <input type="text" id="reg-idNumber" placeholder="e.g., 2023-00123-BN-0" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+                    </div>
+
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <div id="dynamic-divider" style="margin-bottom: 4px; font-weight: 600; color: #730000; border-bottom: 2px solid #f1f2f6; padding-bottom: 6px;">
+                            <p class="section-title"><i class="fa-solid fa-graduation-cap"></i> Academic Details</p>
+                        </div>
+
+                        <div id="student-fields" class="form-grid role-fields" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px;">
+                            <div class="input-group">
+                                <label for="reg-courseId" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Course *</label>
+                                <select id="reg-courseId" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; background-color: white;">
+                                    <option value="" disabled selected>Select Course</option>
+                                    <option value="1">BSIT</option>
+                                    <option value="2">BSBA</option>
+                                    <option value="3">BSED</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="reg-yearLevelId" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Year Level *</label>
+                                <select id="reg-yearLevelId" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; background-color: white;">
+                                    <option value="" disabled selected>Select Year</option>
+                                    <option value="1">1st Year</option>
+                                    <option value="2">2nd Year</option>
+                                    <option value="3">3rd Year</option>
+                                    <option value="4">4th Year</option>
+                                </select>
+                            </div>
+                            <div class="input-group">
+                                <label for="reg-sectionId" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Section *</label>
+                                <select id="reg-sectionId" required style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; background-color: white;">
+                                    <option value="" disabled selected>Select Section</option>
+                                    <option value="1">Section 1</option>
+                                    <option value="2">Section 2</option>
+                                    <option value="3">Section 3</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="professor-fields" class="form-grid role-fields hidden" style="display: grid; grid-template-columns: 1fr;">
+                            <div class="input-group">
+                                <label for="reg-profTypeId" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">Faculty Type Classification *</label>
+                                <select id="reg-profTypeId" style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px; background-color: white;">
+                                    <option value="" disabled selected>Select Status Classification</option>
+                                    <option value="1">Full-Time Faculty</option>
+                                    <option value="2">Part-Time / Guest Lecturer</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div id="admin-fields" class="form-grid role-fields hidden" style="display: grid; grid-template-columns: 1fr;">
+                            <div class="input-group">
+                                <label for="reg-adminKey" style="display: block; margin-bottom: 8px; font-size: 0.85rem; color: #334155;">System Security Verification Token Key *</label>
+                                <input type="password" id="reg-adminKey" placeholder="Enter registration passcode override token" style="width: 100%; padding: 12px; border: 1.5px solid #cbd5e1; border-radius: 8px;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-register" style="width: 100%; background-color: #730000; color: white; border: none; padding: 14px; border-radius: 8px; font-size: 1rem; font-weight: 600; cursor: pointer; margin-top: 10px;">Complete Registration</button>
+                </form>
+                
+                <div class="form-links" style="margin-top: 25px; text-align: center;">
+                    <a href="login.html" class="login-link" style="color: #730000; font-weight: 600; text-decoration: none; font-size: 0.9rem;">Already have an institutional account? Log in here</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="register.js"></script>
+</body>
+</html>
