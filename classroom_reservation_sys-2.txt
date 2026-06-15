@@ -1,0 +1,163 @@
+===Database classroom_reservation_sys
+
+== Table structure for table admin
+
+|------
+|Column|Type|Null|Default
+|------
+|//**adminId**//|int(11)|No|
+|**username**|varchar(50)|No|
+|password|varchar(255)|No|
+|firstName|varchar(50)|No|
+|middleName|varchar(50)|Yes|NULL
+|lastName|varchar(50)|No|
+== Dumping data for table admin
+
+|1|ugy|dds|jg|hk|kh
+|2|admin123|admin123|Marie Thea|Cabuguas|Dela Cruz
+== Table structure for table classroom
+
+|------
+|Column|Type|Null|Default
+|------
+|//**roomId**//|int(11)|No|
+|**roomName**|varchar(50)|No|
+|roomFloor|int(11)|No|
+|roomCapacity|int(11)|No|
+|roomStatus|enum(&#039;Available&#039;, &#039;Occupied&#039;, &#039;Maintenance&#039;)|Yes|Available
+== Dumping data for table classroom
+
+|1|101|0|55|Available
+|2|102|1|50|Available
+|3|202|2|45|Available
+|4|301|3|60|Available
+|5|500|500|20|Available
+|6|305|3|50|Available
+|7|309|3|67|Available
+|8|107|1|50|Available
+|9|105|1|40|Occupied
+|10|104|2|5|Occupied
+== Table structure for table course
+
+|------
+|Column|Type|Null|Default
+|------
+|//**courseId**//|int(11)|No|
+|**courseCode**|varchar(20)|No|
+|courseName|varchar(100)|No|
+|units|int(11)|No|
+|programId|int(11)|No|
+== Dumping data for table course
+
+|1|COOMP 01|Computer Programming O1|5|1
+|3|345|COMPROG|3|1
+|4|932429|COM|3|1
+|6|COOMP 03|Computer Programming 03|7|3
+|7|OOP 01|Object Oriented Programming|6|3
+|8|OOP 02|Object Oriented Programming 02|6|2
+== Table structure for table professor
+
+|------
+|Column|Type|Null|Default
+|------
+|//**professorId**//|int(11)|No|
+|**employeeNumber**|varchar(20)|No|
+|password|varchar(255)|No|
+|firstName|varchar(50)|No|
+|middleName|varchar(50)|Yes|NULL
+|lastName|varchar(50)|No|
+|professorType|enum(&#039;Full-Time&#039;, &#039;Part-Time&#039;)|No|
+== Dumping data for table professor
+
+|1|EMP-002|P001|Micah|Cab|Dela Cruz|Part-Time
+|5|EMP-00|thea23|thea|cabuguas|dela cruz|Part-Time
+== Table structure for table professorcourse
+
+|------
+|Column|Type|Null|Default
+|------
+|//**professorCourseId**//|int(11)|No|
+|professorId|int(11)|No|
+|courseId|int(11)|No|
+== Dumping data for table professorcourse
+
+|1|1|1
+== Table structure for table program
+
+|------
+|Column|Type|Null|Default
+|------
+|//**programId**//|int(11)|No|
+|**programName**|varchar(100)|No|
+== Dumping data for table program
+
+|3|Bachelor of Science in Computer Engineering
+|2|Bachelor of Science in Industrial Engineering
+|1|Bachelor of Science in Information Technology
+|4|Diploma in Information Technology
+== Table structure for table reservation
+
+|------
+|Column|Type|Null|Default
+|------
+|//**reservationId**//|int(11)|No|
+|roomId|int(11)|No|
+|requestedByStudent|int(11)|Yes|NULL
+|requestedByProfessor|int(11)|Yes|NULL
+|purpose|varchar(255)|No|
+|reservationDate|date|No|
+|startTime|time|No|
+|endTime|time|No|
+|status|enum(&#039;Pending&#039;, &#039;Approved&#039;, &#039;Rejected&#039;)|Yes|Pending
+|approvedBy|int(11)|Yes|NULL
+|remarks|text|Yes|NULL
+== Dumping data for table reservation
+
+|3|2|NULL|1|cf|2026-06-09|15:49:00|17:49:00|Pending|NULL|NULL
+|4|2|NULL|1|basta|2026-06-09|15:49:00|17:49:00|Rejected|NULL|NULL
+|6|1|3|NULL|basta|2026-06-09|15:49:00|17:49:00|Pending|NULL|NULL
+|7|2|3|NULL|basta|2026-06-09|21:39:00|22:40:00|Pending|NULL|NULL
+|8|1|NULL|1|class|2026-06-12|07:25:00|08:25:00|Approved|NULL|NULL
+|9|1|NULL|1|class|2026-06-07|12:06:00|13:07:00|Pending|NULL|NULL
+== Table structure for table section
+
+|------
+|Column|Type|Null|Default
+|------
+|//**sectionId**//|int(11)|No|
+|programId|int(11)|No|
+|yearLevelId|int(11)|No|
+|sectionCode|varchar(20)|No|
+== Dumping data for table section
+
+|1|1|1|1-1
+|2|1|1|1-2
+== Table structure for table student
+
+|------
+|Column|Type|Null|Default
+|------
+|//**studentId**//|int(11)|No|
+|**studentNumber**|varchar(20)|No|
+|password|varchar(255)|No|
+|firstName|varchar(50)|No|
+|middleName|varchar(50)|Yes|NULL
+|lastName|varchar(50)|No|
+|sectionId|int(11)|No|
+== Dumping data for table student
+
+|3|STUD-002|thea123|Allysa Rose|Locito|Tolarba|1
+|4|STUD-001|xx|Marie Thea|Cabuguas|Dela Cruz|1
+== Table structure for table yearlevel
+
+|------
+|Column|Type|Null|Default
+|------
+|//**yearLevelId**//|int(11)|No|
+|**yearLevelName**|varchar(100)|No|
+== Dumping data for table yearlevel
+
+|1|1st year
+|2|2nd year
+|3|3rd year
+|4|4th year
